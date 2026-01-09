@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Davi Gabriel</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e293b, #020617);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #38bdf8;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #cbd5f5;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      color: #38bdf8;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .sobre p {
+      max-width: 700px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      background: #020617;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #1e293b;
+    }
+
+    .projetos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid #1e293b;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+    }
+
+    .card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Davi Gabriel</h1>
+    <p>Desenvolvedor em aprendizado | Web & Tecnologia</p>
+  </header>
+
+  <section class="sobre">
+    <h2>Sobre mim</h2>
+    <p>
+      <br>Sou apaixonado por tecnologia e estou sempre em busca de novos conhecimentos na área. Atualmente, curso Gestão de Tecnologia da Informação, onde venho desenvolvendo habilidades técnicas e ampliando minha visão sobre o uso da tecnologia para solucionar problemas reais.</br>
+      <br>Tenho grande interesse em desenvolvimento web e estou constantemente aprendendo e praticando novas ferramentas e linguagens, buscando evoluir tanto no aspecto técnico quanto profissional. Sou uma pessoa dedicada, curiosa e sempre disposta a aprender mais sobre tecnologia, acompanhando as mudanças e desafios da área.</br>
+    </p>
+  </section>
+
+  <section>
+    <h2>Estudando</h2>
+    <div class="skills">
+      <div class="skill">JavaScript</div>
+      <div class="skill">HTML e CSS</div>
+      <div class="skill">Node.js</div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Habilidades</h2>
+    <div class="skills">
+      <div class="skill">SQL Server</div>
+      <div class="skill">PowerBI</div>
+      <div class="skill">Microsoft Office</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projetos</h2>
+    <div class="projetos">
+      <div class="card">
+        <h3>Projeto 1</h3>
+        <p>Descrição do projeto. Aqui você pode explicar o que ele faz.</p>
+        <a href="#">Ver projeto</a>
+      </div>
+
+      <div class="card">
+        <h3>Projeto 2</h3>
+        <p>Descrição do projeto. Pode ser um site, app ou script.</p>
+        <a href="#">Ver projeto</a>
+      </div>
+
+      <div class="card">
+        <h3>Projeto 3</h3>
+        <p>Descrição do projeto. Coloque algo que você criou.</p>
+        <a href="#">Ver projeto</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 - Davi Gabriel</p>
+    <div>
+      <a href="https://github.com/iFeelz">GitHub</a>
+      <a href="https://www.linkedin.com/in/davi-gabriel-boaventura-dos-santos-b22862347/?trk=opento_sprofile_details">LinkedIn</a>
+      <a href="https://api.whatsapp.com/send/?phone=5511970657061&text&type=phone_number&app_absent=0">WhatsApp</a>
+    </div>
+  </footer>
+
+</body>
+</html>

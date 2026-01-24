@@ -1,188 +1,437 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio | Davi Gabriel</title>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Desenvolvedor Web</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
     }
 
     header {
-      background: linear-gradient(135deg, #1e293b, #020617);
-      padding: 80px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 20px;
       text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
-      font-size: 3rem;
-      color: #38bdf8;
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: fadeInDown 0.8s ease;
     }
 
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      color: #cbd5f5;
+    header .subtitle {
+      font-size: 1.3em;
+      opacity: 0.95;
+      font-weight: 300;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      background: white;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #667eea;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #764ba2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
     section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
+      background: white;
+      margin: 40px 0;
+      padding: 50px 30px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     h2 {
-      color: #38bdf8;
-      margin-bottom: 20px;
-      font-size: 2rem;
+      color: #667eea;
+      margin-bottom: 30px;
+      font-size: 2em;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 15px;
     }
 
-    .sobre p {
-      max-width: 700px;
-    }
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-    }
-
-    .skill {
-      background: #020617;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      border: 1px solid #1e293b;
-      box-shadow: 5px 5px 5px 0 rgba(56, 189, 248, 0.2);
-    }
-
-    .projetos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: #020617;
-      padding: 25px;
-      border-radius: 16px;
-      border: 1px solid #1e293b;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
-    }
-
-    .card h3 {
-      color: #38bdf8;
+    h3 {
+      color: #764ba2;
+      margin-top: 20px;
       margin-bottom: 10px;
+      font-size: 1.2em;
     }
 
-    .card a {
-      display: inline-block;
-      margin-top: 15px;
-      color: #38bdf8;
-      text-decoration: none;
+    .bio-content {
+      line-height: 1.8;
+      font-size: 1.05em;
+      color: #555;
+    }
+
+    .bio-content p {
+      margin-bottom: 15px;
+    }
+
+    .education-item {
+      margin-bottom: 30px;
+      padding-left: 20px;
+      border-left: 4px solid #667eea;
+    }
+
+    .education-item .course-name {
+      color: #667eea;
       font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .education-item .institution {
+      color: #764ba2;
+      font-style: italic;
+      margin: 5px 0;
+    }
+
+    .education-item .duration {
+      color: #999;
+      font-size: 0.95em;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .skill-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-section {
+      text-align: center;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      padding: 20px;
+      background: #f0f4ff;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    .contact-item a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #764ba2;
     }
 
     footer {
-      background: #020617;
+      background: #333;
+      color: white;
       text-align: center;
       padding: 30px 20px;
-      border-top: 1px solid #1e293b;
+      margin-top: 60px;
     }
 
-    footer a {
-      color: #38bdf8;
-      text-decoration: none;
-      margin: 0 10px;
+    footer p {
+      margin: 5px 0;
+    }
+
+    .highlight {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      header .subtitle {
+        font-size: 1em;
+      }
+
+      nav ul {
+        gap: 15px;
+        flex-direction: column;
+      }
+
+      section {
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
+  <!-- Header -->
   <header>
-    <h1>Davi Gabriel</h1>
-    <p>Desenvolvedor em aprendizado | Web & Tecnologia</p>
+    <h1>Davi Gabriel Boaventura dos Santos</h1>
+    <p class="subtitle">Desenvolvedor em aprendizado | Web & Tecnologia</p>
   </header>
 
-  <section class="sobre">
-  <h2>Sobre mim</h2>
+  <!-- Navegação -->
+  <nav>
+    <ul>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#educacao">Educação</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
 
-  <div class="texto-sobre">
-    <p>
-Olá, me chamo Davi e sou apaixonado por tecnologia e atualmente curso Gestão de Tecnologia da Informação. 
-Estou sempre em busca de aprendizado contínuo, explorando novas tecnologias e aprimorando minhas habilidades para crescer profissionalmente na área de TI.
-    </p>
+  <div class="container">
+    <!-- Seção Sobre -->
+    <section id="sobre">
+      <h2>Sobre Mim</h2>
+      <div class="bio-content">
+        <p>
+          Sou estudante de <span class="highlight">Gestão de Tecnologia da Informação</span> pela faculdade <span
+            class="highlight">FMU</span> , apaixonado por tecnologia e por tudo que envolve inovação e soluções
+          digitais. Atualmente, estou em constante evolução na área de desenvolvimento web, <span
+            class="highlight">estudando JavaScript, HTML e CSS</span> por meio de cursos práticos na Udemy, sempre
+          focado em aplicar o conhecimento na prática.
+        </p>
+
+        <p>
+          Tenho experiência com <span class="highlight">Microsoft Office</span> e <span class="highlight">Power
+            BI</span>, o que me permite lidar bem com organização, análise de dados e criação de relatórios. Além disso,
+          possuo amplo conhecimento em <span class="highlight">montagem e manutenção de computadores</span>, entendendo
+          tanto a parte de hardware quanto o funcionamento geral dos sistemas.
+        </p>
+
+        <p>
+          Busco constantemente aprender, evoluir e transformar conhecimento técnico em soluções eficientes, com o
+          objetivo de crescer profissionalmente e contribuir de forma positiva em projetos e equipes da área de
+          tecnologia.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seção Educação -->
+    <section id="educacao">
+      <h2>Educação</h2>
+
+      <div class="education-item">
+        <div class="course-name">Gestão de Tecnologia da Informação</div>
+        <div class="institution">FMU - Faculdade Metropolitana Unida</div>
+        <div class="duration">Último Semestre</div>
+        <p>Graduação em andamento em Gestão de Tecnologia da Informação (último semestre).</p>
+      </div>
+
+      <div class="education-item">
+        <div class="course-name">HTML5 e CSS3</div>
+        <div class="institution">Udemy</div>
+        <div class="duration">Em andamento</div>
+        <p>Desenvolvimento de estruturas semânticas e design responsivo com CSS moderno.</p>
+      </div>
+
+      <div class="education-item">
+        <div class="course-name">JavaScript</div>
+        <div class="institution">Udemy</div>
+        <div class="duration">Em andamento</div>
+        <p>Estudo aprofundado em JavaScript, incluindo ES6+, manipulação do DOM e lógica de programação.</p>
+      </div>
+
+      <div class="education-item">
+        <div class="course-name">Suporte Técnico e Manutenção de Hardware</div>
+        <div class="institution">Prática Autônoma</div>
+        <div class="duration">Vivência Técnica</div>
+        <p>Amplo conhecimento em montagem, diagnóstico e manutenção de computadores e sistemas.</p>
+      </div>
+
+      <div class="education-item">
+        <div class="course-name">SQL Server</div>
+        <div class="institution">Conhecimento</div>
+        <div class="duration">Conhecimento Acadêmico</div>
+        <p>Conhecimento em SELECT, INSERT, UPDATE, JOINs e modelagem básica de dados.</p>
+      </div>
+
+      <div class="education-item">
+        <div class="course-name">Microsoft Office e Power BI</div>
+        <div class="institution">Conhecimento</div>
+        <div class="duration">Conhecimento Avançado</div>
+        <p>Proficiência em Excel, Word, PowerPoint e análise de dados com Power BI.</p>
+      </div>
+    </section>
+
+
+    <!-- Seção Habilidades -->
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>HTML5</h3>
+          <p>Estruturação semântica e acessível</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>CSS3</h3>
+          <p>Layouts modernos e responsivos</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>JavaScript</h3>
+          <p>Interatividade e lógica da aplicação</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>SQL Server</h3>
+          <p>Gerenciamento e consultas em banco de dados</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Suporte Técnico</h3>
+          <p>Hardware, diagnóstico e reparos</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Microsoft Office</h3>
+          <p>Documentos, planilhas e apresentações</p>
+        </div>
+      </div>
   </div>
-</section>
-
-
-  <section>
-    <h2>Estudando</h2>
-    <div class="skills">
-      <div class="skill">JavaScript</div>
-      <div class="skill">Node.js</div>
-      
-
-    </div>
   </section>
 
-  <section>
-    <h2>Habilidades</h2>
-    <div class="skills">
-      <div class="skill">HTML e CSS (Avançado)</div>
-      <div class="skill">SQL Server (Básico)</div>
-      <div class="skill">PowerBI (Intermediário)</div>
-      <div class="skill">Microsoft Office (Avançado)</div>
-    </div>
-  </section>
+  <!-- Seção Contato -->
+  <section id="contato">
+    <h2>Contato</h2>
+    <p style="text-align: center; margin-bottom: 30px; font-size: 1.05em;">
+      Estou sempre aberto a novas oportunidades e colaborações. Fique à vontade para entrar em contato comigo!
+    </p>
 
-  <section>
-    <h2>Projetos</h2>
-    <div class="projetos">
-      <div class="card">
-        <h3>Projeto 1</h3>
-        <p>Descrição do projeto. Aqui você pode explicar o que ele faz.</p>
-        <a href="#">Ver projeto</a>
+    <div class="contact-info">
+      <div class="contact-item">
+        <h3>Email</h3>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=davigb2002@gmail.com&su=Contato pelo site&body="
+          target="_blank">Enviar Mensagem</a>
       </div>
 
-      <div class="card">
-        <h3>Projeto 2</h3>
-        <p>Descrição do projeto. Pode ser um site, app ou script.</p>
-        <a href="#">Ver projeto</a>
+      <div class="contact-item">
+        <h3>WhatsApp</h3>
+        <a href="https://api.whatsapp.com/send/?phone=5511970657061&text&type=phone_number&app_absent=0"
+          target="_blank">Contato</a>
       </div>
 
-      <div class="card">
-        <h3>Projeto 3</h3>
-        <p>Descrição do projeto. Coloque algo que você criou.</p>
-        <a href="#">Ver projeto</a>
+      <div class="contact-item">
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/davi-gabriel-boaventura-dos-santos-b22862347/"
+          target="_blank">linkedin.com</a>
+      </div>
+
+
+      <div class="contact-item">
+        <h3>GitHub</h3>
+        <a href="https://github.com/eus4nt" target="_blank">github.com</a>
       </div>
     </div>
   </section>
+  </div>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2026 - Davi Gabriel Boaventura dos Santos</p>
-    <div>
-      <a href="https://github.com/eus4nt" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/davi-gabriel-boaventura-dos-santos-b22862347/?trk=opento_sprofile_details" target="_blank">LinkedIn</a>
-      <a href="https://api.whatsapp.com/send/?phone=5511970657061&text&type=phone_number&app_absent=0" target="_blank">WhatsApp</a>
-    </div>
+    <p>&copy; 2026 Davi Gabriel. Todos os direitos reservados.</p>
+    <p>Desenvolvedor em aprendizado | Web & Tecnologia</p>
   </footer>
-
 </body>
+
 </html>
